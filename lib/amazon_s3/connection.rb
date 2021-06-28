@@ -27,8 +27,7 @@ module AmazonS3
       end
 
       def object(filename, target_folder = @@config.attachments_folder)
-        object = bucket.object(target_folder + filename)
-        object
+        bucket.object(target_folder + filename)
       end
 
       def put(disk_filename, original_filename, data, content_type='application/octet-stream', target_folder = @@config.attachments_folder)
