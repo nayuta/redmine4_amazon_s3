@@ -27,7 +27,8 @@ module AmazonS3
       end
 
       def object(filename, target_folder = @@config.attachments_folder)
-        bucket.object(target_folder + filename)
+        object = bucket.object(target_folder + filename)
+        object
       end
 
       def put(disk_filename, original_filename, data, content_type='application/octet-stream', target_folder = @@config.attachments_folder)
@@ -46,7 +47,7 @@ module AmazonS3
 
       def object_url(filename, target_folder = @@config.attachments_folder)
         object = self.object(filename, target_folder)
-        object.public_url
+        object.presigned_url(:get, expires_in: 180)
       end
 
       def get(filename, target_folder = @@config.attachments_folder)
