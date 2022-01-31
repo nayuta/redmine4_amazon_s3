@@ -17,7 +17,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aws-sdk (~> 2.4)
+  aws-sdk (~> 2.11)
 
 BUNDLED WITH
    2.3.6
